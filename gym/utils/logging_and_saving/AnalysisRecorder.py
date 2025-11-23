@@ -318,7 +318,7 @@ class CSVLogger():
         self.env = env
         self.experiment_name = experiment_name
         self.run_name = os.path.basename(log_dir)
-        self.info_array = np.zeros((max_it, 1+13+20)) # Time, root_states, joint pos/vel
+        self.info_array = np.zeros((max_it, 1+13+20+3+3)) # Time, root_states, joint pos/vel
         self.episode_length = 0
         self.headers = ["ts",
                         "bp_x", "bp_y", "bp_z", 
@@ -328,7 +328,9 @@ class CSVLogger():
                         "rj0_p", "rj1_p", "rj2_p", "rj3_p", "rj4_p",
                         "lj0_p", "lj1_p", "lj2_p", "lj3_p", "lj4_p",
                         "rj0_v", "rj1_v", "rj2_v", "rj3_v", "rj4_v",
-                        "lj0_v", "lj1_v", "lj2_v", "lj3_v", "lj4_v",]
+                        "lj0_v", "lj1_v", "lj2_v", "lj3_v", "lj4_v",
+                        "cmd_vx", "cmd_vy", "cmd_yaw",
+                        "contact_schedule", "l_grf", "r_grf",]
 
     def log(self):
         # Log time
@@ -344,6 +346,14 @@ class CSVLogger():
         # Log joint pos/vel
         self.info_array[self.episode_length, 14:24] = self.env.dof_pos[0].cpu().numpy()
         self.info_array[self.episode_length, 24:34] = self.env.dof_vel[0].cpu().numpy()
+
+        self.info_array[self.episode_length, 34:37] = self.env.commands[0].cpu().numpy()
+
+        # contact schedule
+        self.info_array[self.episode_length, 37] = self.env.contact_schedule[0].cpu().numpy()
+        # foot force
+        # self.info_array[self.episode_length, 38] = self.env.contact_forces[0, 4, 2].cpu().numpy()
+        # self.info_array[self.episode_length, 39] = self.env.contact_forces[0, 8, 2].cpu().numpy()
 
         self.episode_length += 1
         

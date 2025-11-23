@@ -129,13 +129,63 @@ def play(args):
             env.screenshot = False
 
         if CUSTOM_COMMANDS:
-            # * Scenario 1 (For flat terrain)
+            # if (i+1) == 500:
+            #     env.commands[:, 0] = 0.5
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 1000:
+            #     env.commands[:, 0] = 1.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 1500:
+            #     env.commands[:, 0] = 1.5
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 2000:
+            #     env.commands[:, 0] = 2.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 2500:
+            #     env.commands[:, 0] = 2.5
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 3000:
+            #     env.commands[:, 0] = 3.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 3500:
+            #     env.commands[:, 0] = 2.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 4000:
+            #     env.commands[:, 0] = 1.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 4500:
+            #     env.commands[:, 0] = 0.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 5000:
+            #     env.commands[:, 0] = -1.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 6500:
+            #     env.commands[:, 0] = 0.0
+            #     env.commands[:, 1] = 0.
+            # elif (i+1) == 7000:
+            #     env.record_done = True
+
+            # * paper data
             if (i+1) == 500:
                 env.commands[:, 0] = 0.5
                 env.commands[:, 1] = 0.
-            elif (i+1) == 1000: 
+            elif (i+1) == 1000:
                 env.commands[:, 0] = 1.0
                 env.commands[:, 1] = 0.
+            elif (i+1) == 1500:
+                env.commands[:, 0] = 1.5
+                env.commands[:, 1] = 0.
+            elif (i+1) == 2000:
+                env.commands[:, 0] = 1.0
+                env.commands[:, 1] = 0.
+            elif (i+1) == 2500:
+                env.commands[:, 0] = 0.0
+                env.commands[:, 1] = 0.
+            elif (i+1) == 3000:
+                env.commands[:, 0] = 1.0
+                env.commands[:, 1] = 0.
+            elif (i+1) == 3500:
+                env.record_done = True
 
         if MOVE_CAMERA and not env.headless:
             camera_position += camera_vel * env.dt
@@ -198,11 +248,11 @@ def play(args):
 
 if __name__ == '__main__':
     EXPORT_POLICY = True # True, False
-    CUSTOM_COMMANDS = False # True, False
-    MOVE_CAMERA = True # True, False
+    CUSTOM_COMMANDS = True # True, False
+    MOVE_CAMERA = False # True, False
     LIVE_PLOT = False # True, False
     RECORD_FRAMES = False # True, False
-    SAVE_CSV = False # True, False
+    SAVE_CSV = True # True, False
     SAVE_DICT = False # True, False
     CHECK_SUCCESS_RATE = False # True, False
     args = get_args()
