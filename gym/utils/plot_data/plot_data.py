@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 from tile_figures import tileFigures
 
-data_index = -1-1
+data_index = -1
 
 display_monitor = 1
 if display_monitor == 0:
@@ -164,7 +164,7 @@ if __name__ == '__main__':
     plt.figure(fig_num)
     plt.plot(ts, bv_x, 'r', label="base_lin_vel_Base_x [m/s]")
     plt.plot(ts, cmd_vx, 'k', label="cmd_lin_vel_x [m/s]")
-    plt.plot(ts, 1.0+contact_schedule, 'm', label="contact schedule")
+    plt.plot(ts, 0.8+contact_schedule, 'm', label="contact schedule")
     plt.title("base_lin_vel_Base")
     plt.xlabel("time [s]")
     plt.ylabel("base_lin_vel_x_Base [m/s]")
@@ -180,6 +180,17 @@ if __name__ == '__main__':
     plt.title("base_lin_vel_Base")
     plt.xlabel("time [s]")
     plt.ylabel("base_lin_vel_y_Base [m/s]")
+    plt.legend()
+    plt.grid(True)
+
+    fig_num = fig_num + 1
+    plt.figure(fig_num)
+    plt.plot(ts, l_grf, 'b', label="left grf")
+    plt.plot(ts, r_grf, 'r', label="right grf")
+    plt.plot(ts, 150 + 150*contact_schedule, 'm', label="contact schedule")
+    plt.title("grf")
+    plt.xlabel("time [s]")
+    plt.ylabel("grf [N]")
     plt.legend()
     plt.grid(True)
 

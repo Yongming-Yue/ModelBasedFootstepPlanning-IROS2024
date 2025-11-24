@@ -352,8 +352,8 @@ class CSVLogger():
         # contact schedule
         self.info_array[self.episode_length, 37] = self.env.contact_schedule[0].cpu().numpy()
         # foot force
-        # self.info_array[self.episode_length, 38] = self.env.contact_forces[0, 4, 2].cpu().numpy()
-        # self.info_array[self.episode_length, 39] = self.env.contact_forces[0, 8, 2].cpu().numpy()
+        self.info_array[self.episode_length, 38] = self.env.contact_forces[0, 10, 2].cpu().numpy()  # left
+        self.info_array[self.episode_length, 39] = self.env.contact_forces[0, 5, 2].cpu().numpy()   # right
 
         self.episode_length += 1
         
