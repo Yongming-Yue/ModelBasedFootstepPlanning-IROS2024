@@ -234,8 +234,8 @@ class HumanoidControllerCfg(LeggedRobotCfg):
 
             lin_vel_x = [-3.0, 3.0] # min max [m/s]
             lin_vel_y = 1.5 # min max [m/s]
-            lin_vel_x = [-2.0, 2.0] # [-3.0, 3.0] # min max [m/s]
-            lin_vel_y = 2. # 1.5   # min max [m/s]
+            # lin_vel_x = [-2.0, 2.0] # [-3.0, 3.0] # min max [m/s]
+            # lin_vel_y = 2. # 1.5   # min max [m/s]
             yaw_vel = 0.    # min max [rad/s]
 
     class domain_rand(LeggedRobotCfg.domain_rand):

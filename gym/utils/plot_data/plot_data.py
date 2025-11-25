@@ -164,7 +164,7 @@ if __name__ == '__main__':
     plt.figure(fig_num)
     plt.plot(ts, bv_x, 'r', label="base_lin_vel_Base_x [m/s]")
     plt.plot(ts, cmd_vx, 'k', label="cmd_lin_vel_x [m/s]")
-    plt.plot(ts, 0.8+contact_schedule, 'm', label="contact schedule")
+    plt.plot(ts, 1.5 + 1.5*contact_schedule, 'm', label="contact schedule")
     plt.title("base_lin_vel_Base")
     plt.xlabel("time [s]")
     plt.ylabel("base_lin_vel_x_Base [m/s]")
