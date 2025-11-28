@@ -21,7 +21,7 @@ if display_monitor == 0:
     display_gap = 10
 elif display_monitor == 1:
     display_row = 3
-    display_col = 3
+    display_col = 6
     display_gap = 10
 elif display_monitor == 2:
     display_row = 8
@@ -99,6 +99,18 @@ if __name__ == '__main__':
 
     # plot data
     fig_num = 0
+
+    fig_num = fig_num + 1
+    plt.figure(fig_num)
+    plt.plot(ts, bp_x, 'r', label="bp_x [m]")
+    plt.plot(ts, bp_y, 'g', label="bp_y [m]")
+    plt.plot(ts, bp_z, 'b', label="bp_z [m]")
+    plt.plot(ts, contact_schedule, 'm', label="contact schedule")
+    plt.title("pos")
+    plt.xlabel("time [s]")
+    plt.ylabel("pos [m]")
+    plt.legend()
+    plt.grid(True)
 
     fig_num = fig_num + 1
     plt.figure(fig_num)
@@ -191,6 +203,17 @@ if __name__ == '__main__':
     plt.title("grf")
     plt.xlabel("time [s]")
     plt.ylabel("grf [N]")
+    plt.legend()
+    plt.grid(True)
+
+    fig_num = fig_num + 1
+    plt.figure(fig_num)
+    plt.plot(ts, bp_z, 'b', label="bp_z [m]")
+    plt.plot(ts, 0.2*cmd_vx, 'r', label="0.2*cmd_lin_vel_x [m/s]")
+    plt.plot(ts, 0.5 + 0.5*contact_schedule, 'm', label="contact schedule")
+    plt.title("pos")
+    plt.xlabel("time [s]")
+    plt.ylabel("pos [m]")
     plt.legend()
     plt.grid(True)
 
